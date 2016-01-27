@@ -19,7 +19,7 @@
 
     <testsuites>
         <testsuite name="JDHM Unit Tests">
-            <directory>../src/JdhmApi/Tests/Unitary</directory>
+            <directory>src/JdhmApi/Tests/Unitary</directory>
         </testsuite>
     </testsuites>
 
@@ -32,10 +32,10 @@
 
     <filter>
         <whitelist>
-            <directory>../src</directory>
+            <directory>src</directory>
             <exclude>
-                <directory>../src/JdhmApi/Resources</directory>
-                <directory>../src/JdhmApi/Tests</directory>
+                <directory>src/JdhmApi/Resources</directory>
+                <directory>src/JdhmApi/Tests</directory>
             </exclude>
         </whitelist>
     </filter>
