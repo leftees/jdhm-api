@@ -29,7 +29,7 @@ class Hooks
 
             require __DIR__ . \'/../../vendor/autoload.php\';
 
-            use App\Git\Hook\Prepush;
+            use JdmhApi\Git\Hook\Prepush;
 
             $console = new Prepush();
             $console->run();
