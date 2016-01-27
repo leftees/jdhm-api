@@ -15,10 +15,6 @@
 /vendor/
 /web/bundles/
 
-# Cache & Logs
-app/*\.cache
-app/cache
-app/logs
 
 # bin
 bin

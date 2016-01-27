@@ -4,6 +4,12 @@
     "type": "project",
     "description": "API for JDHM company",
     "homepage":    "https://www.assurancevie.com",
+    "support": {
+        "email": "support@assurancevie.com",
+        "issues": "http://redmine.assurancevie.com",
+        "wiki": "http://redmine.assurancevie.com/projects/bav6/wiki",
+        "source": "https://github.com/Pierre-Henri-Bourdeau/jdhm-api"
+    },
     "autoload": {
         "psr-4": {
             "": "src/"
