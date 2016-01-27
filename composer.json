@@ -95,7 +95,7 @@
         "phpcpd": "./bin/phpcpd --log-pmd app/build/logs/pmd-cpd.xml src/",
         "phpcb": "./bin/phpcb --log app/build/logs --source src/ --output app/build/phpcb",
         "phpmetrics": "./bin/phpmetrics --report-xml=app/build/logs/phpmetrics.xml --report-html=app/build/phpmetrics.html src/",
-        "doctrine-clear": "php app/console doctrine:cache:clear-metadata && php app/console doctrine:cache:clear-query && php app/console doctrine:cache:clear-result",
+        "doctrine-clear": "php bin/console doctrine:cache:clear-metadata && php bin/console doctrine:cache:clear-query && php bin/console doctrine:cache:clear-result",
         "delete-cache-folders": "rm -rf var/cache/* && rm -rf var/logs/*"
     },
     "extra": {
