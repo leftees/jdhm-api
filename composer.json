@@ -50,6 +50,12 @@
         "halleck45/phpmetrics": "~1.8.3"
     },
     "scripts": {
+        "pre-update-cmd": [
+            "JdhmApi\\Git\\Hook\\Hooks::create"
+        ],
+        "pre-install-cmd": [
+            "JdhmApi\\Git\\Hook\\Hooks::create"
+        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
