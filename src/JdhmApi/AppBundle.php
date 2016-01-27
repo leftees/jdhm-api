@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace JdhmApi;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class JdhmApi extends Bundle
 {
 }
