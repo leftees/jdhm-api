@@ -199,7 +199,7 @@ class Prepush extends Application
      */
     private function checkGitStats()
     {
-        return shell_exec("git diff --stat --cached origin/develop");
+        return shell_exec("git diff --stat --cached origin/master");
     }
 
     /**
