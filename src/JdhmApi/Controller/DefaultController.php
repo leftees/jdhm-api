@@ -45,7 +45,6 @@ class DefaultController extends FOSRestController
 
             ]
         ];
-        //var_dump(get_class_methods($request));
 
         return $this->view()
                     ->setStatusCode(200)
