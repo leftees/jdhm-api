@@ -68,3 +68,27 @@ fos_rest:
             - { priorities: ['json'], fallback_format: json, prefer_extension: false }
     view:
         view_response_listener: true
+
+nelmio_api_doc:
+    name:                 'JDHM API documentation'
+    exclude_sections:     []
+    default_sections_opened:  true
+    motd:
+        template:             'NelmioApiDocBundle::Components/motd.html.twig'
+    request_listener:
+        enabled:              true
+        parameter:            _doc
+    swagger:
+        api_base_path:        /api
+        swagger_version:      '1.2'
+        api_version:          '0.1'
+        info:
+            title:                Symfony3
+            description:          'My awesome Symfony3 API!'
+            TermsOfServiceUrl:    null
+            contact:              null
+            license:              null
+            licenseUrl:           null
+    cache:
+        enabled:              false
+        file:                 '%kernel.cache_dir%/api-doc.cache'
