@@ -34,7 +34,9 @@
         "symfony/monolog-bundle": "^2.8",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "^2.0"
+        "incenteev/composer-parameter-handler": "^2.0",
+        "friendsofsymfony/rest-bundle": "^1.7",
+        "jms/serializer-bundle": "1.1.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -43,11 +45,9 @@
         "squizlabs/php_codesniffer": "2.*",
         "escapestudios/symfony2-coding-standard": "~2.0",
         "phploc/phploc": "~3.0.0",
-        "pdepend/pdepend" : "~2.2.2",
         "phpmd/phpmd" : "~2.3.2",
         "sebastian/phpcpd": "2.0.0",
-        "mayflower/php-codebrowser": "~1.1",
-        "halleck45/phpmetrics": "~1.8.3"
+        "mayflower/php-codebrowser": "~1.1"
     },
     "scripts": {
         "pre-update-cmd": [
@@ -76,7 +76,6 @@
             "@phpcs",
             "@phpunit",
             "@phploc",
-            "@pdepend",
             "@phpmd",
             "@phpcpd",
             "@phpcb",
@@ -86,15 +85,14 @@
             "@doctrine-clear",
             "@delete-cache-folders"
         ],
-        "phpcs": "./bin/phpcs --report=checkstyle --ignore=*/Entity/*,*/Ressources/*,*/Tests/* --report-file=app/build/logs/checkstyle.xml src/",
+        "phpcs": "./bin/phpcs --report=checkstyle --ignore=*/Entity/*,*/Ressources/*,*/Tests/* --report-file=build/logs/checkstyle.xml src/",
         "phpcbf": "./bin/phpcbf src/",
         "phpunit" : "./bin/phpunit -c app/phpunit.xml",
-        "phploc" : "./bin/phploc src/ --log-csv app/build/logs/phploc.csv",
-        "pdepend": "./bin/pdepend --jdepend-xml=app/build/logs/pdepend.xml --jdepend-chart=app/build/pdepend/dependencies.svg --overview-pyramid=app/build/pdepend/overview-pyramid.svg src/",
-        "phpmd": "./bin/phpmd src xml app/phpmd.xml --reportfile app/build/logs/pmd.xml",
-        "phpcpd": "./bin/phpcpd --log-pmd app/build/logs/pmd-cpd.xml src/",
-        "phpcb": "./bin/phpcb --log app/build/logs --source src/ --output app/build/phpcb",
-        "phpmetrics": "./bin/phpmetrics --report-xml=app/build/logs/phpmetrics.xml --report-html=app/build/phpmetrics.html src/",
+        "phploc" : "./bin/phploc src/ --log-csv build/logs/phploc.csv",
+        "phpmd": "./bin/phpmd src xml app/phpmd.xml --reportfile build/logs/pmd.xml",
+        "phpcpd": "./bin/phpcpd --log-pmd build/logs/pmd-cpd.xml src/",
+        "phpcb": "./bin/phpcb --log build/logs --source src/ --output build/phpcb",
+        "phpmetrics": "./bin/phpmetrics --report-xml=build/logs/phpmetrics.xml --report-html=build/phpmetrics.html src/",
         "doctrine-clear": "php bin/console doctrine:cache:clear-metadata && php bin/console doctrine:cache:clear-query && php bin/console doctrine:cache:clear-result",
         "delete-cache-folders": "rm -rf var/cache/* && rm -rf var/logs/*"
     },
