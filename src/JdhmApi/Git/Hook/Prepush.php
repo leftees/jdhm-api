@@ -180,11 +180,11 @@ class Prepush extends Application
         $output->writeln(sprintf("<blue>2)- Dirty %s you might have left</blue>", $string));
         $output->writeln("");
 
-        $flagFound = shell_exec(sprintf("git grep --color %s HEAD -- `git ls-files | grep -v src/App/Git/`", $string));
+        $flagFound = shell_exec(sprintf("git grep --color %s HEAD -- `git ls-files | grep -v src/JdhmApi/Git/`", $string));
 
         if ($flagFound) {
             $output->writeln($flagFound);
-            $output->writeln("<error>☠ ☠ ☠ You left some unwanted code. Reviewing your code would be much appreciated. Thanks :) (DIE MOTHER FUCKER!) ☠ ☠ ☠ </error>");
+            $output->writeln("<error>☠ ☠ ☠ You left some unwanted code. Reviewing your code would be much appreciated. Thanks :) ☠ ☠ ☠ </error>");
             exit(1);
         }
 
@@ -209,8 +209,8 @@ class Prepush extends Application
      */
     private function checkBranch($output)
     {
-        if ($this->remoteRef !== 'refs/heads/develop') {
-            $output->writeln("<error>☠ ☠ ☠ You can only push to develop mother fucker! ☠ ☠ ☠ </error>");
+        if ($this->remoteRef !== 'refs/heads/master') {
+            $output->writeln("<error>☠ ☠ ☠ You can only push to master! ☠ ☠ ☠ </error>");
             exit(1);
         }
     }
