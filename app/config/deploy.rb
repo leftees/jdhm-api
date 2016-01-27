@@ -21,4 +21,4 @@ role :app,        domain, :primary => true       # This may be the same as your 
 set  :keep_releases,  3
 
 
-set :writable_dirs, [var/cache, var/logs]
+set :writable_dirs, ["var/cache", "var/logs"]
