@@ -3,7 +3,14 @@ JDHM-api
 
 A Symfony project created on January 27, 2016, 10:50 am.
 
+[![Build Status](http://travis-ci.org/kitpages/KitpagesDataGridBundle.png)](http://travis-ci.org/#!/kitpages/KitpagesDataGridBundle)
 
+This Symfony2 Bundle is a simple datagrid bundle. It aims to be easy to use and extensible.
+
+Actual state
+============
+
+stable, production ready
 
 # Installation
 ------------
