@@ -8,6 +8,14 @@ A Symfony project created on January 27, 2016, 10:50 am.
 # Installation
 ------------
 
+#### Server deploy
+
+``` bash
+sudo visudo
+# Allow ph for Capifony deploy
+ph ALL=(ALL) NOPASSWD:ALL
+```
+
 #### Composer
 
 ``` bash
