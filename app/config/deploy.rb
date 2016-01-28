@@ -25,6 +25,8 @@ set :writable_dirs,       ["var/cache", "var/logs"]
 set :permission_method,   :chown
 set :use_set_permissions, true
 
+set :shared_files,      ["app/config/parameters.yml"]
+
 #after "deploy:update_code", "jdhm:folders_rights"
 
 
