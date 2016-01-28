@@ -37,7 +37,7 @@ class DefaultController extends FOSRestController
             'date'  => $date->format("Y-m-d H:i:s"),
             'content-type' => $request->getContentType(),
             'message' => "API in developpement :)",
-            'documentation' => 'http://phb.li/api/doc'
+            'documentation' => 'http://phb.li/api/doc',
             'client' => [
                 'ip' => $request->getClientIp(),
                 'user' => $request->getUser(),
