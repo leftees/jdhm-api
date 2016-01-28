@@ -27,6 +27,9 @@ set :use_set_permissions, true
 
 set :shared_files,      ["app/config/parameters.yml"]
 
+# Might be useful instead of editing visudo
+#default_run_options[:pty] = true
+
 #after "deploy:update_code", "jdhm:folders_rights"
 
 
