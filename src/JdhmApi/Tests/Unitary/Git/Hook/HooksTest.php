@@ -25,9 +25,6 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     public function testcreate()
     {
         $test = $this->hooks->create($this->event);
-
-        var_dump($test);
-        die;
         $this->assertInternalType('string', $test);
     }
 }
