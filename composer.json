@@ -88,7 +88,7 @@
         ],
         "phpcs": "./bin/phpcs --report=checkstyle --ignore=*/Entity/*,*/Ressources/*,*/Tests/* --report-file=build/logs/checkstyle.xml src/",
         "phpcbf": "./bin/phpcbf src/",
-        "phpunit" : "./bin/phpunit -c app/phpunit.xml",
+        "phpunit" : "./bin/phpunit",
         "phploc" : "./bin/phploc src/ --log-csv build/logs/phploc.csv",
         "phpmd": "./bin/phpmd src xml app/phpmd.xml --reportfile build/logs/pmd.xml",
         "phpcpd": "./bin/phpcpd --log-pmd build/logs/pmd-cpd.xml src/",
@@ -96,6 +96,9 @@
         "phpmetrics": "./bin/phpmetrics --report-xml=build/logs/phpmetrics.xml --report-html=build/phpmetrics.html src/",
         "doctrine-clear": "php bin/console doctrine:cache:clear-metadata && php bin/console doctrine:cache:clear-query && php bin/console doctrine:cache:clear-result",
         "delete-cache-folders": "rm -rf var/cache/* && rm -rf var/logs/*"
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",
