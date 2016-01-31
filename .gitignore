@@ -1,6 +1,5 @@
 /app/config/parameters.yml
-/build/*
-!/build/.gitkeep
+/build/
 /var/*
 !/var/cache
 /var/cache/*
@@ -14,44 +13,4 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
-
-
-# bin
-bin
-
-# Composer
-composer.phar
 composer.lock
-
-app/config/dir
-app/config/parameters.yml
-app/config/config_dev.yml
-app/config/*.local.yml
-app/build
-#app/config/deploy.rb
-
-behat.yml
-
-web/robots.txt
-web/bundles
-web/uploads/
-web/vendor
-web/dist
-web/1
-web/assetic1
-
-bin
-vendor
-node_modules
-
-selenium-server-standalone.jar
-
-# specific
-.idea
-.rsync_cache
-nbproject/
-.puppet
-.vagrant
-Vagrantfile
-Vagrantfile~
-npm-debug.log
