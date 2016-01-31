@@ -42,13 +42,13 @@
     "require-dev": {
         "composer/composer": "1.0.*@dev",
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^2.7",
+        "symfony/phpunit-bridge": "3.0.*",
         "phpunit/phpunit": "5.1.*",
         "squizlabs/php_codesniffer": "2.*",
         "escapestudios/symfony2-coding-standard": "~2.0",
         "phploc/phploc": "~3.0.0",
         "phpmd/phpmd" : "~2.3.2",
-        "sebastian/phpcpd": "2.0.0",
+        "sebastian/phpcpd": "2.0.*",
         "mayflower/php-codebrowser": "~1.1"
     },
     "scripts": {
