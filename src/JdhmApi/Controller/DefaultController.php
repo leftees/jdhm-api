@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace JdhmApi\Controller;
 
@@ -42,13 +43,22 @@ class DefaultController extends FOSRestController
                 'ip' => $request->getClientIp(),
                 'user' => $request->getUser(),
                 'host' => $request->getHttpHost(),
-                'is_secure' =>$request->isSecure()
+                'is_secure' => $request->isSecure()
 
-            ]
+            ],
+            'stryct_type_function' => $this->helloStrict(28, "Bob"),
         ];
 
         return $this->view()
                     ->setStatusCode(200)
                     ->setData($data);
+    }
+
+    /**
+    * Strict type function
+    */
+    public function helloStrict(int $age, string $name): string
+    {
+      return sprintf("My name is %s and I'm %d years old", $name, $age);
     }
 }
