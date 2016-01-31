@@ -5,6 +5,8 @@ A Symfony project created on January 27, 2016, 10:50 am.
 
 [![Build Status](https://travis-ci.org/Pierre-Henri-Bourdeau/jdhm-api.svg?branch=master)](https://travis-ci.org/Pierre-Henri-Bourdeau/jdhm-api)
 
+[![Dependency Status](https://www.versioneye.com/user/projects/56ae02f37e03c700377e0056/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae02f37e03c700377e0056)
+
 # Installation
 ------------
 
