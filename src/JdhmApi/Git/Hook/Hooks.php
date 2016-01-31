@@ -3,6 +3,7 @@
 namespace JdhmApi\Git\Hook;
 
 use Composer\Script\Event;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Hooks
@@ -53,5 +54,7 @@ class Hooks
         }
 
         $output->write(sprintf("<info>Pre-push hook was created in %s</info>", $path));
+
+        return true;
     }
 }

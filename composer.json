@@ -11,7 +11,7 @@
         "source": "https://github.com/Pierre-Henri-Bourdeau/jdhm-api"
     },
     "autoload": {
-        "psr-4": {
+        "psr-0": {
             "": "src/"
         },
         "classmap": [
@@ -41,6 +41,7 @@
         "nelmio/api-doc-bundle": "^2.11"
     },
     "require-dev": {
+        "composer/composer": "1.0.*@dev",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^2.7",
         "phpunit/phpunit": "5.1.*",
