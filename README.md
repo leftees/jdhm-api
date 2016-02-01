@@ -10,6 +10,7 @@ Jdhm-Api is a private API
 Installation
 
 --------------------
+
 #Install Environement
 
 PHP7
@@ -17,9 +18,7 @@ PHP7
 ```
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
-sudo apt-get install php7.0
-
-sudo apt-get install php7.0-cli php7.0-curl php7.0-dev php7.0-intl php7.0-json php7.0-mysql php7.0-opcache php7.0-readline
+sudo apt-get install php7.0 php7.0-cli php7.0-curl php7.0-dev php7.0-intl php7.0-json php7.0-mysql php7.0-opcache php7.0-readline
 
 # Check version
 php -v
