@@ -61,4 +61,48 @@ class DefaultController extends FOSRestController
     {
       return sprintf("My name is %s and I'm %d years old", $name, $age);
     }
+
+    /**
+    * This method will return the data for the home page
+    *
+    * @ApiDoc(
+    *  section="Home Page",
+    *  resource=true,
+    *  description="This method will return all the posts",
+    *  statusCodes={
+    *      200="Returned when successful",
+    *      403="Returned when the user is not authorized",
+    *      404={
+    *        "Returned when the posts are not found"
+    *      }
+    * }
+    * )
+    * @Extra\Route("/clients", name="clients")
+    * @Extra\Method({"GET"})
+    */
+    public function clientsAction(Request $request)
+    {
+        $client = [
+            "dateOfBirth" => "10/6/1968",
+            "lastName" => "Reyes",
+            "firstName" => "Elvia",
+            "contractId" => 1782007,
+            "id" => 1
+        ];
+
+        $data = [];
+
+        for ($i=0; $i<20; $i++) {
+            $data[] = $client;
+        }
+
+        return $this->view()
+                    ->setStatusCode(200)
+                    ->setData($data)
+                    ->setHeader('Allow', 'GET, DELETE, OPTIONS, PUT, POST')
+                    ->setHeader('Access-Control-Allow-Credentials', 'true')
+                    ->setHeader('Access-Control-Allow-Headers', 'x-requested-with')
+                    ->setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+                    ->setHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS, PUT, POST');
+    }
 }
