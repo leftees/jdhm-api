@@ -102,7 +102,8 @@ class DefaultController extends FOSRestController
                     ->setHeader('Allow', 'GET, DELETE, OPTIONS, PUT, POST')
                     ->setHeader('Access-Control-Allow-Credentials', 'true')
                     ->setHeader('Access-Control-Allow-Headers', 'x-requested-with')
-                    ->setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+                    //@todo for dev purpose only. The fix it to proper domain
+                    ->setHeader('Access-Control-Allow-Origin', '*')
                     ->setHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS, PUT, POST');
     }
 }
