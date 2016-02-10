@@ -106,4 +106,47 @@ class DefaultController extends FOSRestController
                     ->setHeader('Access-Control-Allow-Origin', '*')
                     ->setHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS, PUT, POST');
     }
+
+    /**
+    * This method will save a client
+    *
+    * @ApiDoc(
+    *  section="Clients",
+    *  resource=true,
+    *  description="This method will Save the client",
+    *  statusCodes={
+    *      200="Returned when successful",
+    *      403="Returned when the user is not authorized",
+    *      404={
+    *        "Returned when the posts are not found"
+    *      }
+    * }
+    * )
+    * @Extra\Route("/client", name="client")
+    * @Extra\Method({"POST"})
+    */
+    public function clientAction(Request $request)
+    {
+        $data = [];
+
+        $statusCode = 400;
+
+        if ($statusCode != 200) {
+            $data['error'] = "I'm the error from the server";
+        } else {
+            $data['data'] = [
+                'Whatever'
+            ];
+        }
+
+        return $this->view()
+                    ->setStatusCode($statusCode)
+                    ->setData($data)
+                    ->setHeader('Allow', 'GET, DELETE, OPTIONS, PUT, POST')
+                    ->setHeader('Access-Control-Allow-Credentials', 'true')
+                    ->setHeader('Access-Control-Allow-Headers', 'x-requested-with')
+                    //@todo for dev purpose only. The fix it to proper domain
+                    ->setHeader('Access-Control-Allow-Origin', '*')
+                    ->setHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS, PUT, POST');
+    }
 }
