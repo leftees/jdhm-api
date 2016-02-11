@@ -95,10 +95,9 @@ class ClientController extends FOSRestController
     * )
     * @Extra\Route("/{id}")
     * @Extra\Method({"PUT"})
-    * @ParamConverter("client", class="JdhmApi\Entity\Client")
     * @Rest\View()
     */
-    public function updateClientAction(Client $client, Request $request)
+    public function updateClientAction(Request $request)
     {
         $em = $this->get('doctrine')->getEntityManager();
 
@@ -111,7 +110,7 @@ class ClientController extends FOSRestController
         $em->flush();
         */
 
-        $data = ['request' => $request];
+        $data = ['request' => 'azdazd'];
 
         return $data;
     }
