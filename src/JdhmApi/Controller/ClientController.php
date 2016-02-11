@@ -6,21 +6,22 @@ namespace JdhmApi\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use JdhmApi\Entity\Client;
 
 /**
-* @Extra\Route("/client", name="homepage")
+* @Extra\Route("/clients", name="homepage")
 */
 class ClientController extends FOSRestController
 {
     /**
-    * This method will return the data for the home page
+    * This method will return all the clients
     *
     * @ApiDoc(
-    *  section="Home Page",
+    *  section="Clients",
     *  resource=true,
     *  description="This method will return all the posts",
     *  statusCodes={
@@ -33,10 +34,10 @@ class ClientController extends FOSRestController
     * )
     * @Extra\Route("/")
     * @Extra\Method({"GET"})
+    * @Rest\View()
     */
-    public function clientsAction(Request $request)
+    public function getAllClientsAction()
     {
-
         $clients = $this->get('doctrine')
                         ->getRepository('JdhmApi\Entity\Client')
                         ->findAll();
@@ -45,24 +46,16 @@ class ClientController extends FOSRestController
             'data' => $clients
         ];
 
-        return $this->view()
-                    ->setStatusCode(200)
-                    ->setData($data)
-                    ->setHeader('Allow', 'GET, DELETE, OPTIONS, PUT, POST')
-                    ->setHeader('Access-Control-Allow-Credentials', 'true')
-                    ->setHeader('Access-Control-Allow-Headers', 'x-requested-with')
-                    //@todo for dev purpose only. The fix it to proper domain
-                    ->setHeader('Access-Control-Allow-Origin', '*')
-                    ->setHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS, PUT, POST');
+        return $data;
     }
 
     /**
-    * This method will save a client
+    * This method will return one client
     *
     * @ApiDoc(
     *  section="Clients",
     *  resource=true,
-    *  description="This method will Save the client",
+    *  description="This method will return one client",
     *  statusCodes={
     *      200="Returned when successful",
     *      403="Returned when the user is not authorized",
@@ -71,39 +64,128 @@ class ClientController extends FOSRestController
     *      }
     * }
     * )
-    * @Extra\Route("/update")
-    * @Extra\Method({"POST"})
+    * @Extra\Route("/{id}")
+    * @Extra\Method({"GET"})
+    * @ParamConverter("client", class="JdhmApi\Entity\Client")
+    * @Rest\View()
     */
-    public function clientAction(Request $request)
+    public function getClientAction(Client $client)
     {
+        $data = [
+            'data' => $client
+        ];
 
-        $idClient = $request->request->get('id');
-/*
-        $client = $this->get('doctrine')
-                        ->getRepository('JdhmApi\Entity\Client')
-                        ->find($idClient);
+        return $data;
+    }
 
+    /**
+    * This method will update a client
+    *
+    * @ApiDoc(
+    *  section="Clients",
+    *  resource=true,
+    *  description="This method will update a client",
+    *  statusCodes={
+    *      200="Returned when successful",
+    *      403="Returned when the user is not authorized",
+    *      404={
+    *        "Returned when the posts are not found"
+    *      }
+    * }
+    * )
+    * @Extra\Route("/{id}")
+    * @Extra\Method({"PUT"})
+    * @ParamConverter("client", class="JdhmApi\Entity\Client")
+    * @Rest\View()
+    */
+    public function updateClientAction(Client $client, Request $request)
+    {
+        $em = $this->get('doctrine')->getEntityManager();
 
+        /*
         $client->setFirstName($request->get('firstName'));
         $client->setLastName($request->get('lastName'));
         $client->setEmail($request->get('email'));
 
-        $this->get('doctrine')->getEntityManager()->persist($client);
-        $this->get('doctrine')->getEntityManager()->flush();
+        $em->persist($client);
+        $em->flush();
         */
+
+        $data = ['request' => $request];
+
+        return $data;
+    }
+
+    /**
+    * This method will create a client
+    *
+    * @ApiDoc(
+    *  section="Clients",
+    *  resource=true,
+    *  description="This method will Create a client",
+    *  statusCodes={
+    *      200="Returned when successful",
+    *      403="Returned when the user is not authorized",
+    *      404={
+    *        "Returned when the posts are not found"
+    *      }
+    * }
+    * )
+    * @Extra\Route("/")
+    * @Extra\Method({"POST"})
+    * @Rest\View()
+    */
+    public function createClientAction(Request $request)
+    {
+        $em = $this->get('doctrine')->getEntityManager();
+
+        /*
+        $client = new Client();
+        $client->setFirstName($request->get('firstName'));
+        $client->setLastName($request->get('lastName'));
+        $client->setEmail($request->get('email'));
+
+        $em->persist($client);
+        $em->flush();
+        */
+
+        $data = [
+            'request' => $request->request
+        ];
+
+        return $data;
+    }
+
+    /**
+    * This method will delete a client
+    *
+    * @ApiDoc(
+    *  section="Clients",
+    *  resource=true,
+    *  description="This method will delete the client",
+    *  statusCodes={
+    *      200="Returned when successful",
+    *      403="Returned when the user is not authorized",
+    *      404={
+    *        "Returned when the posts are not found"
+    *      }
+    * }
+    * )
+    * @Extra\Route("/{id}")
+    * @Extra\Method({"DELETE"})
+    * @ParamConverter("client", class="JdhmApi\Entity\Client")
+    * @Rest\View()
+    */
+    public function deleteClientAction(Client $client)
+    {
+        $em = $this->get('doctrine')->getEntityManager();
+        $em->remove($client);
+        $em->flush();
 
         $data = [
             'id_client' => $idClient
         ];
 
-        return $this->view()
-                    ->setStatusCode(200)
-                    ->setData($request)
-                    ->setHeader('Allow', 'GET, DELETE, OPTIONS, PUT, POST')
-                    ->setHeader('Access-Control-Allow-Credentials', 'true')
-                    ->setHeader('Access-Control-Allow-Headers', 'x-requested-with')
-                    //@todo for dev purpose only. The fix it to proper domain
-                    ->setHeader('Access-Control-Allow-Origin', '*')
-                    ->setHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS, PUT, POST');
+        return $data;
     }
 }
