@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace JdhmApi\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -95,22 +96,28 @@ class ClientController extends FOSRestController
     * )
     * @Extra\Route("/{id}")
     * @Extra\Method({"PUT"})
+    * @ParamConverter("client", class="JdhmApi\Entity\Client")
     * @Rest\View()
     */
-    public function updateClientAction(Request $request)
+    public function updateClientAction(Client $client, Request $request)
     {
         $em = $this->get('doctrine')->getEntityManager();
+        $content = json_decode($request->getContent(), true);
 
-        /*
-        $client->setFirstName($request->get('firstName'));
-        $client->setLastName($request->get('lastName'));
-        $client->setEmail($request->get('email'));
+        if (!$content) {
+            throw new HttpException("No json data in body", 405);
+        }
+
+        $client->setFirstName($content['firstName']);
+        $client->setLastName($content['lastName']);
+        $client->setEmail($content['email']);
 
         $em->persist($client);
         $em->flush();
-        */
 
-        $data = ['request' => 'azdazd'];
+        $data = [
+            'data' => $client
+        ];
 
         return $data;
     }
