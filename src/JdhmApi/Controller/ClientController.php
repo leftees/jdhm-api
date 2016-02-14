@@ -101,7 +101,7 @@ class ClientController extends FOSRestController
     */
     public function updateClientAction(Client $client, Request $request)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
         $content = json_decode($request->getContent(), true);
 
         if (!$content) {
@@ -111,6 +111,11 @@ class ClientController extends FOSRestController
         $client->setFirstName($content['firstName']);
         $client->setLastName($content['lastName']);
         $client->setEmail($content['email']);
+
+        if (array_key_exists('dateOfBirth', $content) && !empty($content['dateOfBirth'])) {
+            $date = \DateTime::createFromFormat('d/m/Y', $content['dateOfBirth']);
+            $client->setDateOfBirth($date);
+        }
 
         $em->persist($client);
         $em->flush();
@@ -143,7 +148,7 @@ class ClientController extends FOSRestController
     */
     public function createClientAction(Request $request)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         /*
         $client = new Client();
@@ -184,7 +189,7 @@ class ClientController extends FOSRestController
     */
     public function deleteClientAction(Client $client)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
         $em->remove($client);
         $em->flush();
 
