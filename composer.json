@@ -50,7 +50,8 @@
         "phploc/phploc": "~3.0.0",
         "phpmd/phpmd" : "~2.3.2",
         "sebastian/phpcpd": "2.0.*",
-        "mayflower/php-codebrowser": "~1.1"
+        "mayflower/php-codebrowser": "~1.1",
+        "doctrine/doctrine-fixtures-bundle": "dev-master"
     },
     "scripts": {
         "pre-update-cmd": [
