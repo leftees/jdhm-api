@@ -149,19 +149,27 @@ class ClientController extends FOSRestController
     public function createClientAction(Request $request)
     {
         $em = $this->get('doctrine')->getManager();
+        $content = json_decode($request->getContent(), true);
 
-        /*
+        if (!$content) {
+            throw new HttpException("No json data in body", 405);
+        }
+
         $client = new Client();
-        $client->setFirstName($request->get('firstName'));
-        $client->setLastName($request->get('lastName'));
-        $client->setEmail($request->get('email'));
+        $client->setFirstName($content['firstName']);
+        $client->setLastName($content['lastName']);
+        $client->setEmail($content['email']);
+
+        if (array_key_exists('dateOfBirth', $content) && !empty($content['dateOfBirth'])) {
+            $date = \DateTime::createFromFormat('d/m/Y', $content['dateOfBirth']);
+            $client->setDateOfBirth($date);
+        }
 
         $em->persist($client);
         $em->flush();
-        */
 
         $data = [
-            'request' => $request->request
+            'data' => $client
         ];
 
         return $data;
