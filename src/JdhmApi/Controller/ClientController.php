@@ -202,7 +202,7 @@ class ClientController extends FOSRestController
         $em->flush();
 
         $data = [
-            'id_client' => $idClient
+            'status' => 'Ok'
         ];
 
         return $data;
