@@ -45,11 +45,19 @@ curl -sS https://getcomposer.org/installer | php && mv composer.phar ~/bin/compo
 
 ##### Travis CLI
 
+```
 sudo gem install travis
 
 travis login
 
-travis encrypt 87dad6az6d4azdyourkey... -r <owner>/<repo>
+travis encrypt CODECLIMATE_REPO_TOKEN=super_secret --add env.global
+```
+
+Then you can use it like this:
+
+```
+${CODECLIMATE_REPO_TOKEN}
+```
 
 Read this for help: https://docs.travis-ci.com/user/environment-variables/
 

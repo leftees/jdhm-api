@@ -1,7 +1,3 @@
-env:
-  global:
-    secure: ItCwQCmiTy3s3ZUlXA+JpVSAKZYDs7FK2t4qVnBD1Dae2stEGRho7N+1oAhwnyca8Nng30hfxNT9okPZvmf39j44wbOa382PNyKP4d9iTkmR/omwlYtumuq6IbTlxTKLoQaeQEAbiAA7YYeqTscd95Ks9jC83HX1bwAOwJoznyDy2BIJRFFTjlb5vxSOxACd3Cwz7aOxmtau8b+jc3US2VCxdPfLww6IeAbXobS+aN9cvp8YVWRkUiO0e6bSwlXi5NwHyFz3oDP4KAfhtco67yGAEIbZkH+EKFnwKFx6mjD8AU4bW2qvdEcLOIjhfZWfaME7JxSarwL1yyVTeD5gPyNId0dHjbPk7knu3+w3A0rwLMxi6qsG/vEvCkujh1LQPVBvwrV3UCQYkk5BeQdAud2SoMg0E8kiOhKNchqES9kf/1jXnrLeW3Tpmu4xkjZgC0J3wF6A57rQDaxDQLdJIc86yIp/zN2tKb78uGNQxXrC/GFKA48rIiPL5hyy9f+huHEtNVFKpSVSGRidOMdXnafD8+lR/284IuL8yTSgA2YYAZbdKaM4sMqijeoVctT5PyjnQBaPFzw/WJkMpg2vOzyC4r5R5vNgqUkapwES1MVn7gyxi09LaFbcYcRU+tVhqUKnuJIWlxpxOWKCCnXEqmhZo+CcQj7vEOeg9K6Z3IA=
-
 language: php
 
 php:
@@ -12,10 +8,15 @@ before_script:
 
 addons:
     code_climate:
-        repo_token: ${secure}
+        repo_token: ${CODECLIMATE_REPO_TOKEN}
 
 script:
     - ./bin/phpunit
 
 after_script:
-    - CODECLIMATE_REPO_TOKEN=${secure} vendor/bin/test-reporter
+    - CODECLIMATE_REPO_TOKEN=${CODECLIMATE_REPO_TOKEN} vendor/bin/test-reporter
+
+env:
+  global:
+    # CODECLIMATE_REPO_TOKEN
+    secure: KMCztC7D5DyTfPiKp+U6cUH7Cg/FmISiTkLkUTb1aIhF2Oagft2WQ6S8FMzMg0EVhpqJhCoWboQBpZvvZfvpgETRT5W843ZKRgrHmbCpNTZogpp8LjgN/nrRzBcGHItEe4cx4Cnm07mS5t7vCIPuAwcMwBz300QfiqWbJLINT/MQwWfhoNmYi+5My4VUPg7cIeoix+h8jhw0zFP4MKumjacC0nA4GJD4QJNgKq+4ePJFsquk95nNofzaTSjJ4cs2IjJi4c1bwIFangK1TRsIg2mwdMyG3xJyTBQGqNfqlC6RKcnX94WYdPaLyTjMH1cVEbhhewVt4LWGMGkJy0JBYlm2Oh5EdHjPHICyvyTdjxU9CFIaR9+qr+lE1GxX4qKstSABl568GXynWwxFCURR0AX29VSLKsccmmtkkVJxdkuE0ZdrdZWg0qx+NlMKpxd4Y2z/Lo7ZAEi6fBL6EEUKsNpX27uP99xhmXHf78wej7mvNfqj1TL9PxYH8lb2ujA5dtpa2FIislj8W7RFZJzS14MS3SytzaZJcThz5r6tPZ9JYy8+XK3fDU+fZQnKXyzHdyaOJALT/THw6Fetac9zfKg14phbgD6R5frrfiY89MAil5wstnpDVJNUOt2pMCz4gExeVVwlgv+ksyADqR/qqUOEV06znI2/68hCX5osGTg=
