@@ -6,5 +6,9 @@ php:
 before_script:
   - composer install --prefer-dist
 
+addons:
+    code_climate:
+        repo_token: 063d45224d933d393519ac9b56cc1667acb6896bd77ae91f82154f95ddd5d9c6
+
 script:
     - ./bin/phpunit
