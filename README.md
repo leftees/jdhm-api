@@ -1,20 +1,18 @@
-[![Stories in Ready](https://badge.waffle.io/bourdeau/jdhm-api.png?label=ready&title=Ready)](https://waffle.io/bourdeau/jdhm-api)
+
 JDHM-Api
 ========
+[![Build Status](https://travis-ci.org/bourdeau/jdhm-api.svg?branch=master)](https://travis-ci.org/bourdeau/jdhm-api)
+[![Stories in Ready](https://badge.waffle.io/bourdeau/jdhm-api.svg)](https://waffle.io/bourdeau/jdhm-api) [![Dependency Status](https://www.versioneye.com/user/projects/56b22743ad0be5003e0ae167/badge.svg)](https://www.versioneye.com/user/projects/56b22743ad0be5003e0ae167)
+[![Code Climate](https://codeclimate.com/github/bourdeau/jdhm-api/badges/gpa.svg?style=flat)](https://codeclimate.com/github/bourdeau/jdhm-api) [![Test Coverage](https://codeclimate.com/github/bourdeau/jdhm-api/badges/coverage.svg?style=flat)](https://codeclimate.com/github/bourdeau/jdhm-api/coverage) [![Issue Count](https://codeclimate.com/github/bourdeau/jdhm-api/badges/issue_count.svg?style=flat)](https://codeclimate.com/github/bourdeau/jdhm-api) [![Gitter](https://badges.gitter.im/bourdeau/jdhm-api.svg?style=flat)](https://gitter.im/bourdeau/jdhm-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Throughput Graph](https://graphs.waffle.io/bourdeau/jdhm-api/throughput.svg)](https://waffle.io/bourdeau/jdhm-api/metrics)
 
-Jdhm-Api is a private API
+Jdhm-Api is a private RESTful API
 
-[![Build Status](https://travis-ci.org/bourdeau/jdhm-api.svg?style=flat&branch=master)](https://travis-ci.org/bourdeau/jdhm-api)
-[![Dependency Status](https://www.versioneye.com/user/projects/56ae02f37e03c700377e0056/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae02f37e03c700377e0056)
+## Installation
 
+### Install Environment
 
-Installation
-
---------------------
-
-#Install Environment
-
-PHP7
+##### PHP7
 
 ```
 sudo add-apt-repository ppa:ondrej/php
@@ -25,7 +23,7 @@ sudo apt-get install php7.0 php7.0-cli php7.0-curl php7.0-dev php7.0-intl php7.0
 php -v
 ```
 
-Xdebug
+##### Xdebug
 
 ```
 git clone git://github.com/xdebug/xdebug.git && cd xdebug
@@ -39,20 +37,20 @@ sudo make install
 zend_extension="/usr/lib/php/20151012/xdebug.so"
 ```
 
-Composer
+##### Composer
 
 ```
 curl -sS https://getcomposer.org/installer | php && mv composer.phar ~/bin/composer && chmod +x ~/bin/composer
 ```
 
-#Install Project
+### Install Project
 
-#### Clone & install vendors
+##### Clone & install vendors
 ``` bash
 git clone git@github.com:Pierre-Henri-Bourdeau/jdhm-api.git && cd jdhm-api && composer install --prefer-dist
 ```
 
-#### Folders permission
+##### Folders permission
 ``` bash
 
 HTTPDUSER=`ps aux | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
@@ -61,7 +59,7 @@ sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX var/cache var/logs
 
 ```
 
-# Server deploy
+## Server deploy
 
 ``` bash
 sudo visudo
