@@ -43,6 +43,16 @@ zend_extension="/usr/lib/php/20151012/xdebug.so"
 curl -sS https://getcomposer.org/installer | php && mv composer.phar ~/bin/composer && chmod +x ~/bin/composer
 ```
 
+##### Travis CLI
+
+sudo gem install travis
+
+travis login
+
+travis encrypt 87dad6az6d4azdyourkey... -r <owner>/<repo>
+
+Read this for help: https://docs.travis-ci.com/user/environment-variables/
+
 ### Install Project
 
 ##### Clone & install vendors
