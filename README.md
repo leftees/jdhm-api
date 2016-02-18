@@ -3,7 +3,7 @@ JDHM-Api
 
 Jdhm-Api is a private API
 
-[![Build Status](https://travis-ci.org/Pierre-Henri-Bourdeau/jdhm-api.svg?branch=master)](https://travis-ci.org/Pierre-Henri-Bourdeau/jdhm-api)
+[![Build Status](https://travis-ci.org/bourdeau/jdhm-api.svg?style=flat&branch=master)](https://travis-ci.org/bourdeau/jdhm-api)
 [![Dependency Status](https://www.versioneye.com/user/projects/56ae02f37e03c700377e0056/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae02f37e03c700377e0056)
 
 
@@ -11,7 +11,7 @@ Installation
 
 --------------------
 
-#Install Environement
+#Install Environment
 
 PHP7
 
