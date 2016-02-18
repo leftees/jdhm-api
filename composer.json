@@ -1,14 +1,21 @@
 {
     "name": "jdhm-api",
-    "license": "proprietary",
+    "license": "MIT",
     "type": "project",
-    "description": "API for JDHM company",
+    "description": "RESTful API",
     "homepage":    "https://www.assurancevie.com",
+    "authors": [
+    {
+        "name": "Pierre-Henri Bourdeau",
+        "email": "phbasic@gmail.com",
+        "role": "Developer"
+    }
+    ],
     "support": {
         "email": "support@assurancevie.com",
-        "issues": "http://redmine.assurancevie.com",
-        "wiki": "http://redmine.assurancevie.com/projects/bav6/wiki",
-        "source": "https://github.com/Pierre-Henri-Bourdeau/jdhm-api"
+        "issues": "https://github.com/bourdeau/jdhm-api/issues",
+        "wiki": "https://github.com/bourdeau/jdhm-api/wiki",
+        "source": "https://github.com/bourdeau/jdhm-api"
     },
     "autoload": {
         "psr-0": {
