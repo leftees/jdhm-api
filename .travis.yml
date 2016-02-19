@@ -8,7 +8,7 @@ before_script:
 
 addons:
     code_climate:
-        repo_token: 063d45224d933d393519ac9b56cc1667acb6896bd77ae91f82154f95ddd5d9c6
+        repo_token: 012a764565ed6f643aac990a149fad43bfe9147f32697c5f2bfc97134dbb6f0a
 
 script:
     - ./bin/phpunit
