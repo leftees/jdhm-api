@@ -4,7 +4,7 @@ engines:
   phpcodesniffer:
     enabled: true
   fixme:
-    enabled: true
+    enabled: false
   rubocop:
     enabled: false
 exclude_paths:
