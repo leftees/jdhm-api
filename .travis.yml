@@ -8,8 +8,7 @@ before_script:
 
 addons:
     code_climate:
-        repo_token:
-            secure: KMCztC7D5DyTfPiKp+U6cUH7Cg/FmISiTkLkUTb1aIhF2Oagft2WQ6S8FMzMg0EVhpqJhCoWboQBpZvvZfvpgETRT5W843ZKRgrHmbCpNTZogpp8LjgN/nrRzBcGHItEe4cx4Cnm07mS5t7vCIPuAwcMwBz300QfiqWbJLINT/MQwWfhoNmYi+5My4VUPg7cIeoix+h8jhw0zFP4MKumjacC0nA4GJD4QJNgKq+4ePJFsquk95nNofzaTSjJ4cs2IjJi4c1bwIFangK1TRsIg2mwdMyG3xJyTBQGqNfqlC6RKcnX94WYdPaLyTjMH1cVEbhhewVt4LWGMGkJy0JBYlm2Oh5EdHjPHICyvyTdjxU9CFIaR9+qr+lE1GxX4qKstSABl568GXynWwxFCURR0AX29VSLKsccmmtkkVJxdkuE0ZdrdZWg0qx+NlMKpxd4Y2z/Lo7ZAEi6fBL6EEUKsNpX27uP99xhmXHf78wej7mvNfqj1TL9PxYH8lb2ujA5dtpa2FIislj8W7RFZJzS14MS3SytzaZJcThz5r6tPZ9JYy8+XK3fDU+fZQnKXyzHdyaOJALT/THw6Fetac9zfKg14phbgD6R5frrfiY89MAil5wstnpDVJNUOt2pMCz4gExeVVwlgv+ksyADqR/qqUOEV06znI2/68hCX5osGTg=
+        repo_token: 063d45224d933d393519ac9b56cc1667acb6896bd77ae91f82154f95ddd5d9c6
 
 script:
     - ./bin/phpunit
